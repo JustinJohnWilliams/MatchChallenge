@@ -65,13 +65,17 @@ let openBrowser _ =
     start (ChromeWithOptions options)
     browser.Manage().Cookies.DeleteAllCookies()
 
+let mutable siteType = 1
+let assignSiteType _ =
+    siteType <- if currentUrl().Contains("/login/index/#/") then 1 else 2
+
 let email = random 5 + "@gmail.com"
 let username = random 5
 let password = random 5
 
 let signIn _ =
     url "http://www.match.com"
-    click "Member Sign In »"
+    assignSiteType()
     "#email" << email
     "#password" << password
     click "Sign in now »"
@@ -81,25 +85,34 @@ let signIn _ =
 openBrowser()
 
 url "http://www.match.com"
-
 click "Member Sign In »"
-// if /login/index/# old site, if www4.matchin.com/login/ we're on new site. determine which so we can follow workflow correctly
-on "/login/index/#"
-click "Subscribe"
-"#genderGenderSeek" << "Man seeking a Woman"
-"#postalCode" << "75034"
-click "View Singles"
-"[name='email']" << email
-next ()
-"[name='password']" << password
-"#birthMonth" << "Dec"
-"#birthDay" << "29"
-"#birthYear" << "1987"
-next ()
-"[name='handle']" << username
-next ()
-on "/Profile/Create/Welcome/?" //logged in
 
-//if we decide to create a full profile (we can do that here, however could be nav issue. check url and go down diff routes)
-signOut()
+//determine if old or new site.
+//TODO: pattern match on type instead of if then else block
+
+assignSiteType()
+
+if currentUrl().Contains("/login/index/#/")
+then
+    on "/login/index/#"
+    click "Subscribe"
+    "#genderGenderSeek" << "Man seeking a Woman"
+    "#postalCode" << "75034"
+    click "View Singles"
+    "[name='email']" << email
+    next ()
+    "[name='password']" << password
+    "#birthMonth" << "Dec"
+    "#birthDay" << "29"
+    "#birthYear" << "1987"
+    next ()
+    "[name='handle']" << username
+    next ()
+    on "/Profile/Create/Welcome/?" //logged in
+    url "http://www.match.com"
+    on "/home/mymatch.aspx"
+    signOut()
+else
+    on "/login"
+
 signIn()
