@@ -66,6 +66,7 @@ let openBrowser _ =
     browser.Manage().Cookies.DeleteAllCookies()
 
 let mutable siteType = 1
+let mutable myFavorite = "some favorite"
 let assignSiteType _ =
     siteType <- if currentUrl().Contains("/login/index/#/") then 1 else 2
 
@@ -111,6 +112,10 @@ then
     on "/Profile/Create/Welcome/?" //logged in
     url "http://www.match.com"
     on "/home/mymatch.aspx"
+    let firstMatch = first ".option"
+    myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
+    click myFavorite
+    click ".cta-favorite"
     signOut()
 else
     on "/login"
