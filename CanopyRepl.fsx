@@ -46,6 +46,13 @@ let exists selector =
 let next _ =
     click "Continue"
 
+let keepGoing _ =
+    click ".progressNext"
+
+let signOut _ =
+    hover "N"
+    click "Sign Out "
+
 let random n =
     Guid.NewGuid().ToString().Substring(0, n)
 
@@ -66,8 +73,7 @@ openBrowser()
 url "http://match.com"
 
 click "Member Sign In »"
-click "SUBSCRIBE"
-//somethingk
+click "Subscribe"
 "#genderGenderSeek" << "Man seeking a Woman"
 "#postalCode" << "75034"
 click "View Singles"
@@ -76,9 +82,23 @@ next ()
 "[name='password']" << password
 "#birthMonth" << "Dec"
 "#birthDay" << "29"
-//something else
 "#birthYear" << "1987"
 next ()
 "[name='handle']" << username
 next ()
 on "/Profile/Create/Welcome/?" //logged in
+
+keepGoing()
+click ".ui-uplater"
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+keepGoing()
+hover "N"
+signOut()
