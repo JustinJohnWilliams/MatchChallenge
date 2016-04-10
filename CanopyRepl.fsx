@@ -83,6 +83,8 @@ let signIn _ =
     click "Sign in now »"
     if siteType = 2 then click "continue to site"
     on "/home/mymatch.aspx"
+
+let verifyFavorite _ =
     click "F"
     if siteType = 2 then on "interests/fave/"
     click "my faves "
@@ -99,54 +101,30 @@ click "Member Sign In »"
 
 assignSiteType()
 
-if currentUrl().Contains("/login/index/#/")
-then
-    on "/login/index/#"
-    click "Subscribe"
-    "#genderGenderSeek" << "Man seeking a Woman"
-    "#postalCode" << "75034"
-    click "View Singles"
-    "[name='email']" << email
-    next ()
-    "[name='password']" << password
-    "#birthMonth" << "Dec"
-    "#birthDay" << "29"
-    "#birthYear" << "1987"
-    next ()
-    "[name='handle']" << username
-    next ()
-    on "/Profile/Create/Welcome/?" //logged in
-    url "http://www.match.com"
-    on "/home/mymatch.aspx"
-    let firstMatch = first ".option"
-    myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
-    click myFavorite
-    click ".cta-favorite"
-    on "/matchbook/AddEntry.aspx"
-    signOut()
-else
-    on "/login"
-    click "SUBSCRIBE"
-    "#genderGenderSeek" << "Man seeking a Woman"
-    "#postalCode" << "75034"
-    click "View Singles"
-    "[name='email']" << email
-    next ()
-    "[name='password']" << password
-    "#birthMonth" << "Dec"
-    "#birthDay" << "29"
-    "#birthYear" << "1987"
-    next ()
-    "[name='handle']" << username
-    next ()
-    on "/Profile/Create/Welcome/?" //logged in
-    url "http://www.match.com"
-    on "/home/mymatch.aspx"
-    let firstMatch = first ".option"
-    myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
-    click myFavorite
-    click ".cta-favorite"
-    on "/matchbook/AddEntry.aspx"
-    signOut()
+if siteType = 1 then on "/login/index/#" else on "/login"
+if siteType = 1 then click "Subscribe" else click "SUBSCRIBE"
 
+"#genderGenderSeek" << "Man seeking a Woman"
+"#postalCode" << "75034"
+click "View Singles"
+"[name='email']" << email
+next ()
+"[name='password']" << password
+"#birthMonth" << "Dec"
+"#birthDay" << "29"
+"#birthYear" << "1987"
+next ()
+"[name='handle']" << username
+next ()
+on "/Profile/Create/Welcome/?" //logged in
+url "http://www.match.com"
+on "/home/mymatch.aspx"
+let firstMatch = first ".option"
+myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
+click myFavorite
+click ".cta-favorite"
+on "/matchbook/AddEntry.aspx"
+
+signOut()
 signIn()
+verifyFavorite()
