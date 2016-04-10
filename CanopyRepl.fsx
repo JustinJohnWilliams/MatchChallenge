@@ -74,6 +74,41 @@ let email = random 5 + "@gmail.com"
 let username = random 5
 let password = random 5
 
+let createAccount _ =
+    "#genderGenderSeek" << "Man seeking a Woman"
+    "#postalCode" << "75034"
+    click "View Singles"
+    "[name='email']" << email
+    next ()
+    "[name='password']" << password
+    "#birthMonth" << "Dec"
+    "#birthDay" << "29"
+    "#birthYear" << "1987"
+    next ()
+    "[name='handle']" << username
+    next ()
+    on "/Profile/Create/Welcome/?" //logged in
+
+let addFavorite _ =
+    url "http://www.match.com"
+    on "/home/mymatch.aspx"
+    let firstMatch = first ".option"
+    myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
+    click myFavorite
+    click ".cta-favorite"
+    on "/matchbook/AddEntry.aspx"
+
+let closeEmailAlert _ =
+    let modal1 = js "document.getElementsByClassName('notif-email')"
+    if modal1 <> null then
+        let element1 = element ".notif-email"
+        if element1.Displayed then click "Later"
+
+    let modal2 = js "document.getElementById('notificationEmail')"
+    if modal2 <> null then
+        let modal2 = element "#notificationEmail"
+        if modal2.Displayed then click "continue to site"
+
 let signIn _ =
     url "http://www.match.com"
     click "Member Sign In »"
@@ -81,11 +116,12 @@ let signIn _ =
     "#email" << email
     "#password" << password
     click "Sign in now »"
-    if siteType = 2 then click "continue to site"
-    on "/home/mymatch.aspx"
+    closeEmailAlert()
+    if siteType = 1 then on "/home/mymatch.aspx" else on "/MyMatch/Index"
 
 let verifyFavorite _ =
     click "F"
+    closeEmailAlert()
     if siteType = 2 then on "interests/fave/"
     click "my faves "
     displayed ".cards"
@@ -104,27 +140,7 @@ assignSiteType()
 if siteType = 1 then on "/login/index/#" else on "/login"
 if siteType = 1 then click "Subscribe" else click "SUBSCRIBE"
 
-"#genderGenderSeek" << "Man seeking a Woman"
-"#postalCode" << "75034"
-click "View Singles"
-"[name='email']" << email
-next ()
-"[name='password']" << password
-"#birthMonth" << "Dec"
-"#birthDay" << "29"
-"#birthYear" << "1987"
-next ()
-"[name='handle']" << username
-next ()
-on "/Profile/Create/Welcome/?" //logged in
-url "http://www.match.com"
-on "/home/mymatch.aspx"
-let firstMatch = first ".option"
-myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
-click myFavorite
-click ".cta-favorite"
-on "/matchbook/AddEntry.aspx"
-
+createAccount()
 signOut()
 signIn()
 verifyFavorite()
