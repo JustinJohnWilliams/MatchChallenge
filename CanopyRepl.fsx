@@ -44,101 +44,112 @@ let exists selector =
     | _ -> false
 
 let next _ =
-    click "Continue"
+  click "Continue"
 
 let keepGoing _ =
-    click ".progress-next"
+  click ".progress-next"
 
 let signOut _ =
-    hover "N"
-    click "Sign Out "
-    browser.Manage().Cookies.DeleteAllCookies()
+  hover "N"
+  click "Sign Out "
+  browser.Manage().Cookies.DeleteAllCookies()
 
 let random n =
-    Guid.NewGuid().ToString().Substring(0, n)
+  Guid.NewGuid().ToString().Substring(0, n)
 
 let openBrowser _ =
-    configuration.chromeDir <- "./"
-    let options = Chrome.ChromeOptions()
-    options.AddArgument("--enable-logging")
-    options.AddArgument("--v=0")
-    start (ChromeWithOptions options)
-    browser.Manage().Cookies.DeleteAllCookies()
+  configuration.chromeDir <- "./"
+  let options = Chrome.ChromeOptions()
+  options.AddArgument("--enable-logging")
+  options.AddArgument("--v=0")
+  start (ChromeWithOptions options)
+  browser.Manage().Cookies.DeleteAllCookies()
 
 let mutable siteType = 1
 let mutable myFavorite = "some favorite"
-let assignSiteType _ =
-    //TODO: create a type and pattern match
-    siteType <- if currentUrl().Contains("/login/index/#/") then 1 else 2
+let mutable email = random 5 + "@gmail.com"
+let mutable username = random 5
+let mutable password = random 5
 
-let email = random 5 + "@gmail.com"
-let username = random 5
-let password = random 5
+let assignSiteType _ =
+  sleep 5
+  printfn "%d" siteType
+  printfn "%s" ( currentUrl() )
+  siteType <- if exists "#topspot-dash" then 2 else 1
+  printfn "%d" siteType
+
+let init _ =
+  email <- random 5 + "@gmail.com"
+  username <- random 5
+  password <- random 5
+  ()
 
 let createAccount _ =
-    "#genderGenderSeek" << "Man seeking a Woman"
-    "#postalCode" << "75034"
-    click "View Singles"
-    "[name='email']" << email
-    next ()
-    "[name='password']" << password
-    "#birthMonth" << "Dec"
-    "#birthDay" << "29"
-    "#birthYear" << "1987"
-    next ()
-    "[name='handle']" << username
-    next ()
-    on "/Profile/Create/Welcome/?" //logged in
-    url "http://www.match.com"
+  url "http://www.match.com"
+  click "Member Sign In »"
+  assignSiteType()
+  if siteType = 1 then on "/login/index/#" else on "/login"
+  click ".btn-subscribe a"
+  "#genderGenderSeek" << "Man seeking a Woman"
+  "#postalCode" << "75034"
+  click "View Singles"
+  "[name='email']" << email
+  next ()
+  "[name='password']" << password
+  "#birthMonth" << "Dec"
+  "#birthDay" << "29"
+  "#birthYear" << "1987"
+  next ()
+  "[name='handle']" << username
+  next ()
+  on "/Profile/Create/Welcome/?" //logged in
+  url "http://www.match.com"
 
 let addFavorite _ =
-    url "http://www.match.com"
-    on "/home/mymatch.aspx"
-    let firstMatch = first ".option"
-    myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
-    click myFavorite
-    click ".cta-favorite"
-    on "/matchbook/AddEntry.aspx"
+  url "http://www.match.com"
+  on "/home/mymatch.aspx"
+  let firstMatch = first ".option"
+  myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
+  click myFavorite
+  click ".cta-favorite"
+  on "/matchbook/AddEntry.aspx"
 
 let closeEmailAlert _ =
-    if exists ".notif-email" then
-        let element1 = element ".notif-email"
-        if element1.Displayed then click "Later"
+  if exists ".notif-email" then
+     let element1 = element ".notif-email"
+     if element1.Displayed then click "Later"
 
-    if exists "#notificationEmail" then
-        let modal2 = element "#notificationEmail"
-        if modal2.Displayed then click "continue to site"
+  if exists "#notificationEmail" then
+     let modal2 = element "#notificationEmail"
+     if modal2.Displayed then click "continue to site"
 
 let signIn _ =
-    url "http://www.match.com"
-    click "Member Sign In »"
-    assignSiteType()
-    "#email" << email
-    "#password" << password
-    click "Sign in now »"
-    closeEmailAlert()
-    if siteType = 1 then on "/home/mymatch.aspx" else on "/MyMatch/Index"
+  browser.Manage().Cookies.DeleteAllCookies()
+  url "http://www.match.com"
+  click "Member Sign In »"
+  assignSiteType()
+  "#email" << email
+  "#password" << password
+  click "Sign in now »"
+  closeEmailAlert()
+  if siteType = 1 then on "/home/mymatch.aspx" else on "/MyMatch/Index"
 
 let verifyFavorite _ =
-    click "F"
-    closeEmailAlert()
-    if siteType = 2 then on "interests/fave/"
-    click "my faves "
-    displayed ".cards"
-    displayed myFavorite
+  click "F"
+  closeEmailAlert()
+  if siteType = 2 then on "interests/fave/"
+  click "my faves "
+  displayed ".cards"
+  displayed myFavorite
+
 
 openBrowser()
-
-url "http://www.match.com"
-click "Member Sign In »"
-
-assignSiteType()
-
-if siteType = 1 then on "/login/index/#" else on "/login"
-if siteType = 1 then click "Subscribe" else click "SUBSCRIBE"
-
+init()
 createAccount()
+signOut()
+signIn()
 addFavorite()
 signOut()
 signIn()
 verifyFavorite()
+signOut()
