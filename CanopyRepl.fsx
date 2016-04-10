@@ -76,12 +76,18 @@ let password = random 5
 
 let signIn _ =
     url "http://www.match.com"
+    click "Member Sign In »"
     assignSiteType()
     "#email" << email
     "#password" << password
     click "Sign in now »"
-    click "continue to site"
+    if siteType = 2 then click "continue to site"
     on "/home/mymatch.aspx"
+    click "F"
+    if siteType = 2 then on "interests/fave/"
+    click "my faves "
+    displayed ".cards"
+    displayed myFavorite
 
 openBrowser()
 
@@ -116,8 +122,31 @@ then
     myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
     click myFavorite
     click ".cta-favorite"
+    on "/matchbook/AddEntry.aspx"
     signOut()
 else
     on "/login"
+    click "SUBSCRIBE"
+    "#genderGenderSeek" << "Man seeking a Woman"
+    "#postalCode" << "75034"
+    click "View Singles"
+    "[name='email']" << email
+    next ()
+    "[name='password']" << password
+    "#birthMonth" << "Dec"
+    "#birthDay" << "29"
+    "#birthYear" << "1987"
+    next ()
+    "[name='handle']" << username
+    next ()
+    on "/Profile/Create/Welcome/?" //logged in
+    url "http://www.match.com"
+    on "/home/mymatch.aspx"
+    let firstMatch = first ".option"
+    myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
+    click myFavorite
+    click ".cta-favorite"
+    on "/matchbook/AddEntry.aspx"
+    signOut()
 
 signIn()
