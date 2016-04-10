@@ -67,6 +67,7 @@ url "http://match.com"
 
 click "Member Sign In »"
 click "SUBSCRIBE"
+//somethingk
 "#genderGenderSeek" << "Man seeking a Woman"
 "#postalCode" << "75034"
 click "View Singles"
