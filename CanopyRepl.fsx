@@ -68,6 +68,7 @@ let openBrowser _ =
 let mutable siteType = 1
 let mutable myFavorite = "some favorite"
 let assignSiteType _ =
+    //TODO: create a type and pattern match
     siteType <- if currentUrl().Contains("/login/index/#/") then 1 else 2
 
 let email = random 5 + "@gmail.com"
@@ -88,6 +89,7 @@ let createAccount _ =
     "[name='handle']" << username
     next ()
     on "/Profile/Create/Welcome/?" //logged in
+    url "http://www.match.com"
 
 let addFavorite _ =
     url "http://www.match.com"
@@ -99,13 +101,11 @@ let addFavorite _ =
     on "/matchbook/AddEntry.aspx"
 
 let closeEmailAlert _ =
-    let modal1 = js "document.getElementsByClassName('notif-email')"
-    if modal1 <> null then
+    if exists ".notif-email" then
         let element1 = element ".notif-email"
         if element1.Displayed then click "Later"
 
-    let modal2 = js "document.getElementById('notificationEmail')"
-    if modal2 <> null then
+    if exists "#notificationEmail" then
         let modal2 = element "#notificationEmail"
         if modal2.Displayed then click "continue to site"
 
@@ -132,15 +132,13 @@ openBrowser()
 url "http://www.match.com"
 click "Member Sign In »"
 
-//determine if old or new site.
-//TODO: pattern match on type instead of if then else block
-
 assignSiteType()
 
 if siteType = 1 then on "/login/index/#" else on "/login"
 if siteType = 1 then click "Subscribe" else click "SUBSCRIBE"
 
 createAccount()
+addFavorite()
 signOut()
 signIn()
 verifyFavorite()
