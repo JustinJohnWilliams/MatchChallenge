@@ -76,6 +76,7 @@ next ()
 "[name='password']" << password
 "#birthMonth" << "Dec"
 "#birthDay" << "29"
+//something else
 "#birthYear" << "1987"
 next ()
 "[name='handle']" << username
