@@ -47,11 +47,12 @@ let next _ =
     click "Continue"
 
 let keepGoing _ =
-    click ".progressNext"
+    click ".progress-next"
 
 let signOut _ =
     hover "N"
     click "Sign Out "
+    browser.Manage().Cookies.DeleteAllCookies()
 
 let random n =
     Guid.NewGuid().ToString().Substring(0, n)
@@ -64,15 +65,26 @@ let openBrowser _ =
     start (ChromeWithOptions options)
     browser.Manage().Cookies.DeleteAllCookies()
 
-let email = random 5 + "@something.com"
+let email = random 5 + "@gmail.com"
 let username = random 5
 let password = random 5
 
+let signIn _ =
+    url "http://www.match.com"
+    click "Member Sign In »"
+    "#email" << email
+    "#password" << password
+    click "Sign in now »"
+    click "continue to site"
+    on "/home/mymatch.aspx"
+
 openBrowser()
 
-url "http://match.com"
+url "http://www.match.com"
 
 click "Member Sign In »"
+// if /login/index/# old site, if www4.matchin.com/login/ we're on new site. determine which so we can follow workflow correctly
+on "/login/index/#"
 click "Subscribe"
 "#genderGenderSeek" << "Man seeking a Woman"
 "#postalCode" << "75034"
@@ -88,17 +100,6 @@ next ()
 next ()
 on "/Profile/Create/Welcome/?" //logged in
 
-keepGoing()
-click ".ui-uplater"
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-keepGoing()
-hover "N"
+//if we decide to create a full profile (we can do that here, however could be nav issue. check url and go down diff routes)
 signOut()
+signIn()
