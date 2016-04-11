@@ -1,2 +1,16 @@
 FSharpModules/
 /chrome_debug.log
+
+*.suo
+*.user
+
+# Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+.vs/
+packages/
