@@ -37,6 +37,34 @@ open OpenQA.Selenium
 open OpenQA.Selenium.Support.UI
 open OpenQA.Selenium.Interactions
 
+let genderInput = "#genderGenderSeek"
+let postalCodeInput = "#postalCode"
+let viewSinglesButton = "View Singles"
+let emailRegisterInput = "[name='email']"
+let passwordRegisterInput = "[name='password']"
+let birthMonthInput = "#birthMonth"
+let birthDayInput = "#birthDay"
+let birthYearInput = "#birthYear"
+let handleInput = "[name='handle']"
+let emailLoginInput = "#email"
+let passwordLoginInput = "#password"
+let signOutNav = "N"
+let signOutButton = "Sign Out "
+let signInButton = "Sign in now »"
+let matchOptionClass = ".option"
+let favoriteMatchClass = ".cta-favorite"
+let favoritesButton = "F"
+let myFavesButton = "my faves "
+let favoriteCardsClass = ".cards"
+let addEntryVerifulUrl = "/matchbook/AddEntry.aspx"
+
+let matchUrl = "http://www.match.com"
+let matchCreateAccountUrl = "http://www.match.com/registration/registration.aspx"
+let loginUrl = "https://secure.match.com/login/index/#/"
+let profileWelcomeVerifyUrl = "/Profile/Create/Welcome/?"
+let myMatchVerify1Url = "/home/mymatch.aspx"
+let myMatchVerify2Url = "/MyMatch/Index"
+
 let exists selector =
   let e = someElement selector
   match e with
@@ -50,11 +78,6 @@ let next _ =
 
 let keepGoing _ =
   click ".progress-next"
-
-let signOut _ =
-  hover "N"
-  click "Sign Out "
-  browser.Manage().Cookies.DeleteAllCookies()
 
 let random n =
   Guid.NewGuid().ToString().Substring(0, n)
@@ -81,38 +104,11 @@ let assignSiteType _ =
   printfn "%d" siteType
 
 let init _ =
+  siteType <- 1
   email <- random 5 + "@gmail.com"
   username <- random 5
   password <- random 5
   ()
-
-let createAccount _ =
-  url "http://www.match.com"
-  click "Member Sign In »"
-  url "http://www.match.com/registration/registration.aspx"
-  "#genderGenderSeek" << "Man seeking a Woman"
-  "#postalCode" << "75034"
-  click "View Singles"
-  "[name='email']" << email
-  next ()
-  "[name='password']" << password
-  "#birthMonth" << "Dec"
-  "#birthDay" << "29"
-  "#birthYear" << "1987"
-  next ()
-  "[name='handle']" << username
-  next ()
-  on "/Profile/Create/Welcome/?" //logged in
-  url "http://www.match.com"
-
-let addFavorite _ =
-  url "http://www.match.com"
-  on "/home/mymatch.aspx"
-  let firstMatch = first ".option"
-  myFavorite <- firstMatch.Text.Split(' ').[0].Split('\n').[0]
-  click myFavorite
-  click ".cta-favorite"
-  on "/matchbook/AddEntry.aspx"
 
 let closeEmailAlert _ =
   if exists ".notif-email" then
@@ -123,23 +119,50 @@ let closeEmailAlert _ =
      let modal2 = element "#notificationEmail"
      if modal2.Displayed then click "continue to site"
 
+let createAccount _ =
+  url matchCreateAccountUrl
+  genderInput << "Man seeking a Woman"
+  postalCodeInput << "75034"
+  click viewSinglesButton
+  emailRegisterInput << email
+  next ()
+  passwordRegisterInput << password
+  birthMonthInput << "Dec"
+  birthDayInput << "29"
+  birthYearInput << "1987"
+  next ()
+  handleInput << username
+  next ()
+  on profileWelcomeVerifyUrl //logged in
+  url matchUrl
+
+let signOut _ =
+  hover signOutNav
+  click signOutButton
+  browser.Manage().Cookies.DeleteAllCookies()
+
 let signIn _ =
   browser.Manage().Cookies.DeleteAllCookies()
-  url "http://www.match.com"
-  click "Member Sign In »"
+  url loginUrl
   assignSiteType()
-  "#email" << email
-  "#password" << password
-  click "Sign in now »"
+  emailLoginInput << email
+  passwordLoginInput << password
+  click signInButton
   closeEmailAlert()
-  if siteType = 1 then on "/home/mymatch.aspx" else on "/MyMatch/Index"
+
+let addFavorite _ =
+  url matchUrl
+  let firstMatch = first matchOptionClass
+  myFavorite <- firstMatch.Text.Split(' ').[0].Split('\r', '\n').[0]
+  click myFavorite
+  click favoriteMatchClass
+  on addEntryVerifulUrl
 
 let verifyFavorite _ =
-  click "F"
+  click favoritesButton
   closeEmailAlert()
-  if siteType = 2 then on "interests/fave/"
-  click "my faves "
-  displayed ".cards"
+  click myFavesButton
+  displayed favoriteCardsClass
   displayed myFavorite
 
 openBrowser()
@@ -152,3 +175,4 @@ signOut()
 signIn()
 verifyFavorite()
 signOut()
+signIn()
