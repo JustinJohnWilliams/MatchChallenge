@@ -43,6 +43,8 @@ let exists selector =
     | Some(e) -> true
     | _ -> false
 
+let split sep (x : String) = x.Split([|sep|])
+
 let next _ =
   click "Continue"
 
