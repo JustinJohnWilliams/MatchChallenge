@@ -87,9 +87,7 @@ let init _ =
 let createAccount _ =
   url "http://www.match.com"
   click "Member Sign In »"
-  assignSiteType()
-  if siteType = 1 then on "/login/index/#" else on "/login"
-  click ".btn-subscribe a"
+  url "http://www.match.com/registration/registration.aspx"
   "#genderGenderSeek" << "Man seeking a Woman"
   "#postalCode" << "75034"
   click "View Singles"
@@ -141,7 +139,6 @@ let verifyFavorite _ =
   click "my faves "
   displayed ".cards"
   displayed myFavorite
-
 
 openBrowser()
 init()
