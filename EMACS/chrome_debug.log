@@ -1,0 +1,73 @@
+[1647:30983:0411/132459:ERROR:chrome_rlz_tracker_delegate.cc(119)] Not implemented reached in virtual bool ChromeRLZTrackerDelegate::GetLanguage(base::string16 *)
+[1647:1295:0411/132509:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132510:INFO:CONSOLE(479)] "response", source: http://cp.match.com/en-us/match/registration/scripts/index_fb.js?v=8.0.5940.28682 (479)
+[1647:1295:0411/132511:INFO:CONSOLE(479)] "response", source: http://cp.match.com/en-us/match/registration/scripts/index_fb.js?v=8.0.5940.28682 (479)
+[1647:1295:0411/132512:INFO:CONSOLE(479)] "response", source: http://cp.match.com/en-us/match/registration/scripts/index_fb.js?v=8.0.5940.28682 (479)
+[1647:1295:0411/132512:INFO:CONSOLE(479)] "response", source: http://cp.match.com/en-us/match/registration/scripts/index_fb.js?v=8.0.5940.28682 (479)
+[1647:1295:0411/132513:INFO:CONSOLE(479)] "response", source: http://cp.match.com/en-us/match/registration/scripts/index_fb.js?v=8.0.5940.28682 (479)
+[1647:31747:0411/132513:WARNING:spdy_session.cc(2394)] Received HEADERS for invalid stream 15
+[1647:31747:0411/132513:WARNING:spdy_session.cc(2394)] Received HEADERS for invalid stream 17
+[1647:31747:0411/132513:WARNING:spdy_session.cc(2394)] Received HEADERS for invalid stream 19
+[1647:1295:0411/132517:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132518:INFO:CONSOLE(246)] "te_re[0.3.6] - register tag: 5ee7a0f7-3401-4c24-a6e6-02e46c514ecc", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132518:INFO:CONSOLE(246)] "te_re[0.3.6] - Invalid feature specified! name: tag", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132521:INFO:CONSOLE(0)] "Refused to execute script from 'https://sb.scorecardresearch.com/p?c1=3&c2=6035777&c3=9315171&c4=68140266&c5=126687004&c6=&c10=1&c11=&c13=1x1&c16=dcm&cj=1&ax_fwd=1&rn=4553108&' because its MIME type ('image/gif') is not executable.", source: http://tpc.googlesyndication.com/safeframe/1-0-2/html/container.html#xpc=sf-gdn-exp-1&p=http%3A//www.match.com (0)
+[1647:1295:0411/132521:INFO:CONSOLE(0)] "Refused to execute script from 'https://sb.scorecardresearch.com/p?c1=3&c2=6035777&c3=9315171&c4=68140266&c5=126687004&c6=&c10=1&c11=&c13=1x1&c16=dcm&cj=1&ax_fwd=1&rn=4553108&' because its MIME type ('image/gif') is not executable.", source: http://tpc.googlesyndication.com/safeframe/1-0-2/html/container.html#xpc=sf-gdn-exp-1&p=http%3A//www.match.com (0)
+[1647:1295:0411/132540:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132542:INFO:CONSOLE(1)] "Uncaught ReferenceError: EAS_resize_fif is not defined", source:  (1)
+[1647:1295:0411/132542:INFO:CONSOLE(0)] "Mixed Content: The page at 'https://secure.match.com/login/logout/?lid=3#/' was loaded over HTTPS, but requested an insecure image 'http://static.2mdn.net/viewad/2525618/default.gif'. This content should also be served over HTTPS.", source: https://secure.match.com/login/logout/?lid=3#/ (0)
+[1647:1295:0411/132553:INFO:CONSOLE(10)] "Uncaught Error: Url '/home' does not match any routes", source: https://www4.match.com/bundles/vendor-ccce26394e7b9ca09545.js (10)
+[1647:1295:0411/132553:INFO:CONSOLE(10)] "Uncaught Error: Url '/home' does not match any routes", source: https://www4.match.com/bundles/vendor-ccce26394e7b9ca09545.js (10)
+[1647:1295:0411/132556:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132556:INFO:CONSOLE(246)] "te_re[0.3.6] - register tag: 60ded096-43f2-419f-a163-ad0fb299e361", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132556:INFO:CONSOLE(246)] "te_re[0.3.6] - Invalid feature specified! name: tag", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132611:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132611:INFO:CONSOLE(246)] "te_re[0.3.6] - register tag: 6095883a-5589-45c0-8043-3cb3ccb24f96", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132611:INFO:CONSOLE(246)] "te_re[0.3.6] - Invalid feature specified! name: tag", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132617:INFO:CONSOLE(0)] "Refused to execute script from 'http://pixel.quantserve.com/pixel/p-1ZHFxK2kGG5Cz.gif?labels=publisher.16370.space.52298,adsize.300x250' because its MIME type ('image/gif') is not executable.", source: http://www.match.com/home/mymatch.aspx (0)
+[1647:1295:0411/132633:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132634:INFO:CONSOLE(1)] "Uncaught ReferenceError: EAS_resize_fif is not defined", source:  (1)
+[1647:1295:0411/132634:INFO:CONSOLE(0)] "Mixed Content: The page at 'https://secure.match.com/login/logout/?lid=3#/' was loaded over HTTPS, but requested an insecure image 'http://static.2mdn.net/viewad/2525618/default.gif'. This content should also be served over HTTPS.", source: https://secure.match.com/login/logout/?lid=3#/ (0)
+[1647:1295:0411/132639:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132649:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132649:INFO:CONSOLE(246)] "te_re[0.3.6] - register tag: 0272f22f-86a2-411b-99ee-e9222316c582", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132649:INFO:CONSOLE(246)] "te_re[0.3.6] - Invalid feature specified! name: tag", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132802:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132803:INFO:CONSOLE(0)] "Mixed Content: The page at 'https://secure.match.com/login/logout/?lid=3#/' was loaded over HTTPS, but requested an insecure resource 'http://media.match.com/iframe?spacedesc=16278195_1083487_677x21_16278194_16278195&target=_blank&random=&@CPSC@=https://adclick.g.doubleclick.net/aclk?sa=L&ai=BL6hns-wLV96AKo6uBbyCsPgCw5zD1wUAAAAQASDDi54dOABY05ijhr8BYMnu-4zkpMATsgEQc2VjdXJlLm1hdGNoLmNvbboBCWdmcF9pbWFnZcgBCdoBLGh0dHBzOi8vc2VjdXJlLm1hdGNoLmNvbS9sb2dpbi9sb2dvdXQvP2xpZD0zwAIC4AIA6gIXLzcyMTQvbWF0Lm1hdGNoL3NpZ25vdXT4AoLSHoADAZADpAOYA-ADqAMB4AQB0gUFEJugzkCQBgGgBhbYBwDgBws&num=0&cid=5Ghbx-knmzccmkoRINj0nhvk&sig=AOD64_1KNQJ_60Wt7rybbfNQJGCtz_dVQw&client=ca-pub-8619985894363818&adurl='. This request has been blocked; the content must be served over HTTPS.", source: https://secure.match.com/login/logout/?lid=3#/ (0)
+[1647:1295:0411/132809:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132817:INFO:CONSOLE(0)] "Refused to execute script from 'https://mydmp.exelator.com/load/?p=794&g=1&clk=0&stnm=N7437.137772.MAXPOINTINTERACTIVE&stid=1472147&crid=69743311&cpid=9377712&adid=3576711&plid=130013774&cb=3011862374&j=0&evid=0' because its MIME type ('image/gif') is not executable.", source: https://secure.match.com/login/index/#/ (0)
+[1647:1295:0411/132821:INFO:CONSOLE(0)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source:  (0)
+[1647:1295:0411/132821:INFO:CONSOLE(246)] "te_re[0.3.6] - register tag: 579b26e0-13ba-4823-a246-b04dc2301a66", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132821:INFO:CONSOLE(246)] "te_re[0.3.6] - Invalid feature specified! name: tag", source: http://media.match.com/te_re/te_re.js (246)
+[1647:1295:0411/132823:INFO:CONSOLE(784)] "Running Hiro version: test-283", source: https://comedysec-a.akamaihd.net/JS_Syndiction/scripts/hiro_dynamic_player.js?externalID=CGB-TM2-Mens-RON-PUB-ND&consoleID=comedygivesback&cms_co=FashionOne&theme=FO-Menswear2016&subExternalID=12--34158732&ref1=http://www.match.com/home/mymatch.aspx (784)
+[1647:1295:0411/132824:INFO:CONSOLE(0)] "XMLHttpRequest cannot load http://cdn-01.yumenetworks.com/ym/72K6cH27X672/3560/udOzQtkb/Affiliate2_vpaid_as3_1169cuhziLqa.xml?hc=t0_0_8. The 'Access-Control-Allow-Origin' header has a value 'http://www.wuxiaworld.com' that is not equal to the supplied origin. Origin 'http://www.match.com' is therefore not allowed access.", source: http://www.match.com/home/mymatch.aspx (0)
+[1647:1295:0411/132826:INFO:CONSOLE(1)] "YuMe LOG : http://plg1.yumenetworks.com//dynamic_preroll_playlist.fmil?domain=1169cuhziLqa&yvbsv=7.0.2.3&sdk_ver=4.0.2.20&width=300&height=250&viewport=1120,583,1,1,300,250,1120,583&ytp=0,0,1920,1128,1120,583,1920,1398&ypt=none&childFrame=http://www.match.com/home/mymatch.aspx#ifrndnloc&protocol_version=2.0&&sdk_url=https%3A%2F%2Fplg1.yumenetworks.com%2Fyvp%2F20%2Fvpaid%2Fcr%2F&embeddedIn=http%3A%2F%2Fwww.match.com%2Fhome%2Fmymatch.aspx&", source:  (1)
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=1
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=1
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=2
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=2
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=3
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=3
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=4
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=4
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=1
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=5
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=5
+[1647:1295:0411/132834:ERROR:gpu_process_transport_factory.cc(645)] Lost UI shared context.
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=6
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=6
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=7
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=7
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=8
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=8
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=9
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=9
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=10
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=11
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=12
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=13
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=14
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=15
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=16
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=17
+[1647:126279:0411/132834:WARNING:audio_sync_reader.cc(112)] AudioSyncReader::Read timed out, audio glitch count=18
